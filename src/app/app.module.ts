@@ -3,22 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
-import { CoursesPageComponent } from './courses-page/courses-page.component';
+import {BaseModule} from './base/base.module';
+import {CoursesPageModuleModule} from './courses-page-module/courses-page-module.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    BreadcrumbsComponent,
-    CoursesPageComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BaseModule,
+    CoursesPageModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
