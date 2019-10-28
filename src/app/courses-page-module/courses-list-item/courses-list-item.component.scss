@@ -1,0 +1,37 @@
+.course-list-item {
+  padding: 20px;
+  margin: 20px 0;
+  background: white;
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    .course-duration {
+      display: flex;
+      color: gray;
+      > * {
+        margin: 0 10px;
+      }
+    }
+  }
+  .course-main-info {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.course-main-actions {
+  white-space: nowrap;
+  .action-button {
+    padding: 10px 15px;
+    background: lightskyblue;
+    color: white;
+    border: none;
+    margin: 0 10px;
+    &.green {
+      background: forestgreen;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+

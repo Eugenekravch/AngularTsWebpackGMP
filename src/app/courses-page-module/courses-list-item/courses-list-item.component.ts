@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {CoursesListItem} from '../courses-list.interface';
 
 @Component({
@@ -12,6 +12,12 @@ export class CoursesListItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (this.courseInfo.id % 2) {
+      this.courseInfo.title = 'OnInit value';
+    }
   }
 
+  editCourse() {
+    return;
+  }
 }

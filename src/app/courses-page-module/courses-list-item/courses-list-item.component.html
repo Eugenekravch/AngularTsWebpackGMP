@@ -1,7 +1,20 @@
-<div>
-  <li>{{courseInfo.id}}</li>
-  <li>{{courseInfo.title}}</li>
-  <li>{{courseInfo.duration}}</li>
-  <li>{{courseInfo.description}}</li>
-  <li>{{courseInfo.creationDate}}</li>
+<div class="course-list-item">
+  <div class="course-list-item-header">
+    <h3>{{courseInfo.title}}</h3>
+    <div class="course-duration">
+      <div>
+        {{courseInfo.duration}}
+      </div>
+      <div>
+        {{courseInfo.creationDate}}
+      </div>
+    </div>
+  </div>
+  <div class="course-main-info">
+    <p>{{courseInfo.description}}</p>
+    <div class="course-main-actions">
+      <button class="action-button">Edit</button>
+      <button (click)="editCourse(courseInfo.id)" class="action-button">Delete</button>
+    </div>
+  </div>
 </div>
