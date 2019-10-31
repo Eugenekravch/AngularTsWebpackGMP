@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {BaseModule} from './base/base.module';
+import {CoreModule} from './core/core.module';
 import {CoursesPageModuleModule} from './courses-page-module/courses-page-module.module';
 
 @NgModule({
@@ -13,7 +13,7 @@ import {CoursesPageModuleModule} from './courses-page-module/courses-page-module
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BaseModule,
+    CoreModule,
     CoursesPageModuleModule
   ],
   providers: [],

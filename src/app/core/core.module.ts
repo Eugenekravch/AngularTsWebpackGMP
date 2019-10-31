@@ -15,4 +15,4 @@ import { LoginInfoComponent } from './header/login-info/login-info.component';
   ],
   exports: [HeaderComponent, FooterComponent, BreadcrumbsComponent]
 })
-export class BaseModule { }
+export class CoreModule { }
