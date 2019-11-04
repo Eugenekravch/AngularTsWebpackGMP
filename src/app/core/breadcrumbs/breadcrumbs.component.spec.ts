@@ -22,4 +22,9 @@ describe('BreadcrumbsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should set text into breadcrumbs', () => {
+    const expectedText = 'Courses';
+    const breadCrumbsText = fixture.nativeElement.querySelector('.bread-crumbs').textContent;
+    expect(breadCrumbsText.trim()).toBe(expectedText);
+  });
 });

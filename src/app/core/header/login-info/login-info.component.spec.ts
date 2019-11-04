@@ -22,4 +22,9 @@ describe('LoginInfoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set correct user name', () => {
+    const expectedUserName = component.userInfo.firstName + ' ' + component.userInfo.lastName;
+    expect(fixture.nativeElement.querySelector('.user-info p').textContent).toBe(expectedUserName);
+  });
 });
