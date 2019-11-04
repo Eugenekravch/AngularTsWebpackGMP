@@ -8,6 +8,7 @@ import {CoursesListItem} from '../courses-list.interface';
 })
 export class CoursesListItemComponent implements OnInit {
   @Input() public courseInfo: CoursesListItem;
+  @Output() deleteCourseEvent = new EventEmitter<number>();
 
   constructor() { }
 
@@ -19,5 +20,9 @@ export class CoursesListItemComponent implements OnInit {
 
   editCourse() {
     return;
+  }
+
+  deleteCourse(id: number) {
+    this.deleteCourseEvent.emit(id);
   }
 }

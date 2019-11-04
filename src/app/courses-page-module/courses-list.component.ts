@@ -53,4 +53,8 @@ export class CoursesListComponent implements OnInit {
   loadMore() {
     console.log('load more');
   }
+
+  deleteCourse(id: number) {
+    console.log(id);
+  }
 }
