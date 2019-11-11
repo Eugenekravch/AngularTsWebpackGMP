@@ -1,17 +1,23 @@
-<div class="course-list-item">
+<div
+  class="course-list-item"
+  [ngClass]="{'top-rated': courseInfo.topRated}"
+  [appCourseStatus]="courseInfo.creationDate">
   <div class="course-list-item-header">
-    <h3>{{courseInfo.title}}</h3>
+    <h3><span *ngIf="courseInfo.topRated" style="margin-right: 5px">☆</span>{{courseInfo.title | uppercase}}</h3>
     <div class="course-duration">
       <div>
-        {{courseInfo.duration}}
+        {{courseInfo.duration | duration}}
       </div>
       <div>
-        {{courseInfo.creationDate}}
+        {{courseInfo.creationDate | date: 'medium' | slice: 0:6}}
       </div>
     </div>
   </div>
   <div class="course-main-info">
     <p>{{courseInfo.description}}</p>
+    <p *ngIf="!courseInfo.description">
+      No description. Feel free to add this course.
+    </p>
     <div class="course-main-actions">
       <button (click)="editCourse(courseInfo.id)" class="action-button">Edit</button>
       <button (click)="deleteCourse(courseInfo.id)" class="action-button delete-button">Delete</button>
