@@ -15,7 +15,7 @@ export class CourseStatusDirective implements OnInit {
   private setBorderColorByDate(): string {
     const currentDate = new Date();
     const creationDate = new Date(this.creationDate);
-    const diffDays = Math.ceil(Math.abs(currentDate.getDate() - creationDate.getDate()) / (1000 * 60 * 60 * 24));
+    const diffDays = Math.ceil(Math.abs(currentDate.getTime() - creationDate.getTime()) / (1000 * 60 * 60 * 24));
     let color = 'transparent';
 
     if (creationDate < currentDate && diffDays <= 14) {

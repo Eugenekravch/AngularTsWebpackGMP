@@ -2,7 +2,8 @@
   padding: 20px;
   margin: 20px 0;
   background: white;
-  border: 1px solid transparent;
+  border: 3px solid transparent;
+  border-radius: 10px;
   &-header {
     display: flex;
     justify-content: space-between;

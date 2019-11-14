@@ -19,7 +19,7 @@ export class CoursesListComponent implements OnInit {
     {
       id: 2,
       title: 'course 2',
-      creationDate: new Date('10/10/2019'),
+      creationDate: new Date('11/11/2019'),
       description: 'On this training, we will take a look at custom ' +
         'components in Angular 2, what they are, how to build comp' +
         'onents in Angular 2 application and pass data between ' +
