@@ -1,6 +1,6 @@
 <div class="user-info">
-  <p>{{userInfo.firstName}} {{userInfo.lastName}}</p>
-  <button class="link-button">
+  <p>{{userInfo.userName}}</p>
+  <button class="link-button" type="button" *ngIf="userInfo" (click)="logOut()">
     Log off
   </button>
 </div>

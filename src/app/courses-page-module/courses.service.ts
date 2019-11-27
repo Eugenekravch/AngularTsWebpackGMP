@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {CoursesListItem} from './courses-list.interface';
-import _ from 'lodash';
+import { find, remove } from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -64,11 +64,11 @@ export class CoursesService {
   }
 
   getItemById(id): CoursesListItem {
-    return _.find(this.courses, ['id', id]);
+    return find(this.courses, ['id', id]);
   }
 
   updateItem(id, title, creationDate, description, duration, topRated): void {
-    const selectedItem = _.find(this.courses, ['id', id]);
+    const selectedItem = find(this.courses, ['id', id]);
 
     selectedItem.title = title;
     selectedItem.creationDate = creationDate;
@@ -78,7 +78,7 @@ export class CoursesService {
   }
 
   removeItem(id): void {
-    _.remove(this.courses, (item) => {
+    remove(this.courses, (item) => {
       return item.id === id;
     });
   }

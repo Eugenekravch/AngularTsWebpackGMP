@@ -22,7 +22,10 @@ export class CoursesListComponent implements OnInit {
   }
 
   deleteCourse(id: number) {
-    this.coursesService.removeItem(id);
+    const result = confirm('Do you really want to delete this course?');
+    if (result) {
+      this.coursesService.removeItem(id);
+    }
   }
 
   getCourses(): void {

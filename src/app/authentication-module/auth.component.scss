@@ -1,0 +1,12 @@
+.auth-form {
+  width: 400px;
+  background: beige;
+  border-radius: 10px;
+  height: 300px;
+  margin: auto;
+}
+.auth-page {
+  height: calc(100vh - 125px);
+  display: flex;
+  align-items: center;
+}

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UserInfo} from '../../user-info.interface';
+import {AuthService} from '../../../authentication-module/auth.service';
 
 @Component({
   selector: 'app-login-info',
@@ -7,15 +8,26 @@ import {UserInfo} from '../../user-info.interface';
   styleUrls: ['./login-info.component.scss']
 })
 export class LoginInfoComponent implements OnInit {
+  @Output() logoutEvent = new EventEmitter<any>();
+
   userInfo: UserInfo = {
-    id: 1,
-    firstName: 'John',
-    lastName: 'Newman'
+    userName: ''
   };
 
-  constructor() { }
+  isAuthenticatedUser: boolean;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.isAuthenticatedUser = this.authService.isAuthenticated();
+    if (this.isAuthenticatedUser) {
+      this.userInfo.userName = this.authService.getUserInfo();
+    }
+  }
+
+  logOut(): void {
+    this.logoutEvent.emit();
+    this.userInfo.userName = '';
   }
 
 }
