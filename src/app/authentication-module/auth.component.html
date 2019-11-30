@@ -2,12 +2,12 @@
   <div class="auth-form">
     <div>
       <label for="userName">Name</label>
-      <input type="text" id="userName">
+      <input type="text" id="userName" [(ngModel)]="userName">
     </div>
     <div>
       <label for="password">Password</label>
-      <input type="password" id="password" ngModel="">
+      <input type="password" id="password" [(ngModel)]="password">
     </div>
-    <button type="submit" (click)="login('aaa', '123')">Login</button>
+    <button type="submit" (click)="login()">Login</button>
   </div>
 </div>

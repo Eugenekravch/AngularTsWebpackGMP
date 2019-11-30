@@ -7,13 +7,15 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class AuthComponent implements OnInit {
   @Output() loginEvent = new EventEmitter<object>();
+  private password: string;
+  private userName: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  login(name, password): void {
-    this.loginEvent.emit({name, password});
+  login(): void {
+    this.loginEvent.emit({name: this.userName, password: this.password});
   }
 }

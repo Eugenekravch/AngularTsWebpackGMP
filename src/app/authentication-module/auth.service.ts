@@ -17,7 +17,6 @@ export class AuthService {
 
   getUserInfo(): string {
     const key = localStorage.key(0);
-    debugger;
 
     return localStorage.getItem(key);
   }
