@@ -6,9 +6,10 @@ import { SearchComponent } from './search/search.component';
 import {FormsModule} from '@angular/forms';
 import { CourseStatusDirective } from './courses-list-item/course-status.directive';
 import { DurationPipe } from './duration.pipe';
+import { CoursesNewEditPageComponent } from './courses-new-edit-page/courses-new-edit-page.component';
 
 @NgModule({
-  declarations: [CoursesListComponent, CoursesListItemComponent, SearchComponent, CourseStatusDirective, DurationPipe],
+  declarations: [CoursesListComponent, CoursesListItemComponent, SearchComponent, CourseStatusDirective, DurationPipe, CoursesNewEditPageComponent],
   imports: [
     CommonModule,
     FormsModule

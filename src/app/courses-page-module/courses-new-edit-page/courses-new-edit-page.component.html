@@ -1,0 +1,23 @@
+<div class="new-page-form">
+  <div class="new-page-form-field">
+    <label for="courseTitle">Title</label>
+    <input type="text" id="courseTitle" [(ngModel)]="title">
+  </div>
+  <div class="new-page-form-field">
+    <label for="courseDescription">Description</label>
+    <textarea type="text" id="courseDescription" [(ngModel)]="description"></textarea>
+  </div>
+  <div class="new-page-form-field">
+    <label for="courseDate">Date</label>
+    <input type="date" id="courseDate" [(ngModel)]="date">
+  </div>
+  <div class="new-page-form-field">
+    <label for="courseDuration">Duration</label>
+    <input type="number" id="courseDuration" [(ngModel)]="duration">
+  </div>
+  <div class="new-page-form-field buttons-container">
+    <button class="action-button" (click)="save()">Save</button>
+    <button class="action-button" (click)="cancel()">Cancel</button>
+  </div>
+</div>
+
