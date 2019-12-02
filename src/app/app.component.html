@@ -1,5 +1,8 @@
-<app-header (logoutEvent)="logOut()"></app-header>
-<app-auth *ngIf="!isAuthenticated" (loginEvent)="login($event)"></app-auth>
-<app-breadcrumbs *ngIf="isAuthenticated"></app-breadcrumbs>
-<app-courses-list *ngIf="isAuthenticated"></app-courses-list>
-<app-footer></app-footer>
+<!--<app-header (logoutEvent)="logOut()"></app-header>-->
+<!--<app-auth *ngIf="!isAuthenticated" (loginEvent)="login($event)"></app-auth>-->
+<!--<app-breadcrumbs *ngIf="isAuthenticated"></app-breadcrumbs>-->
+<!--<app-courses-list *ngIf="isAuthenticated"></app-courses-list>-->
+<!--<app-footer></app-footer>-->
+<main>
+  <router-outlet></router-outlet>
+</main>

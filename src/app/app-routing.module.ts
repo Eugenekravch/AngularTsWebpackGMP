@@ -1,15 +1,28 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {CoursesListComponent} from './courses-page-module/courses-list.component';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
+import {EmptyRouteComponentComponent} from './core/empty-route-component/empty-route-component.component';
+import {AuthGuard} from './authentication-module/auth.guard';
+import {AuthComponent} from './authentication-module/auth.component';
 
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/course-list'},
-  {path: 'course-list', component: CoursesListComponent}
+  {
+    path: 'course-list',
+    loadChildren: () =>
+      import('./courses-page-module/courses-page-module.module').then(mod => mod.CoursesPageModuleModule),
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+  },
+  {path: 'login', component: AuthComponent},
+  {path: '**', component: EmptyRouteComponentComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules,
+    enableTracing: true
+  })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

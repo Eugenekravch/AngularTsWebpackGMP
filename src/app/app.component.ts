@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from './authentication-module/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,23 +7,22 @@ import {AuthService} from './authentication-module/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'AngularProject';
-  isAuthenticated: boolean;
+  // isAuthenticated: boolean;
 
-  constructor(private authService: AuthService) {}
+  constructor() {}
 
   ngOnInit() {
-    this.isAuthenticated = this.authService.isAuthenticated();
+    // this.isAuthenticated = this.authService.isAuthenticated();
   }
 
-  login({name, password}) {
-    this.authService.login(name, password);
-    this.isAuthenticated = this.authService.isAuthenticated();
-    console.log(this.authService.isAuthenticated());
-  }
+  // login({name, password}) {
+  //   this.authService.login(name, password);
+  //   this.isAuthenticated = this.authService.isAuthenticated();
+  //   console.log(this.authService.isAuthenticated());
+  // }
 
-  logOut() {
-    this.authService.logout();
-    this.isAuthenticated = this.authService.isAuthenticated();
-    console.log(this.authService.isAuthenticated());
-  }
+  // logOut() {
+  //   this.authService.logout();
+  //   console.log(this.authService.isAuthenticated());
+  // }
 }

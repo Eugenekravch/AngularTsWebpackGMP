@@ -18,7 +18,7 @@ export class AuthService {
   getUserInfo(): string {
     const key = localStorage.key(0);
 
-    return localStorage.getItem(key);
+    return key;
   }
 
   isAuthenticated(): boolean {

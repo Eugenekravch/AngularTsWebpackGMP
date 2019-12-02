@@ -7,12 +7,23 @@ import {FormsModule} from '@angular/forms';
 import { CourseStatusDirective } from './courses-list-item/course-status.directive';
 import { DurationPipe } from './duration.pipe';
 import { CoursesNewEditPageComponent } from './courses-new-edit-page/courses-new-edit-page.component';
+import {CoreModule} from '../core/core.module';
+
+import { CoursesPageModuleRoutingModule } from './courses-page-module-routing.module';
 
 @NgModule({
-  declarations: [CoursesListComponent, CoursesListItemComponent, SearchComponent, CourseStatusDirective, DurationPipe, CoursesNewEditPageComponent],
+  declarations: [
+    CoursesListComponent,
+    CoursesListItemComponent,
+    SearchComponent,
+    CourseStatusDirective,
+    DurationPipe,
+    CoursesNewEditPageComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    CoreModule,
+    CoursesPageModuleRoutingModule
   ],
   exports: [CoursesListComponent, SearchComponent]
 })

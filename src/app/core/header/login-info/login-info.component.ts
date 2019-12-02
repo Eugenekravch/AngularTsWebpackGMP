@@ -27,7 +27,6 @@ export class LoginInfoComponent implements OnInit {
 
   logOut(): void {
     this.logoutEvent.emit();
-    this.userInfo.userName = '';
   }
 
 }

@@ -1,3 +1,5 @@
+<app-header></app-header>
+<app-breadcrumbs></app-breadcrumbs>
 <main class="main-content">
   <app-search></app-search>
   <div class="list-of-courses">
@@ -9,5 +11,7 @@
       <button class="link-button" (click)="loadMore()">Load more</button>
     </div>
   </div>
-  <app-courses-new-edit-page ></app-courses-new-edit-page>
+  <router-outlet></router-outlet>
+  <!--<app-courses-new-edit-page ></app-courses-new-edit-page>-->
 </main>
+<app-footer></app-footer>
