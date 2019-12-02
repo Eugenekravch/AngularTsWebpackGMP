@@ -19,7 +19,7 @@
       No description. Feel free to add this course.
     </p>
     <div class="course-main-actions">
-      <button (click)="editCourse(courseInfo.id)" class="action-button">Edit</button>
+      <button [routerLink]="['./', courseInfo.id]" class="action-button">Edit</button>
       <button (click)="deleteCourse(courseInfo.id)" class="action-button delete-button">Delete</button>
     </div>
   </div>

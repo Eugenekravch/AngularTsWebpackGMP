@@ -27,6 +27,9 @@ export class CoursesListComponent implements OnInit {
       this.coursesService.removeItem(id);
     }
   }
+  // editCourse(id: number) {
+  //
+  // }
 
   getCourses(): void {
     this.courses = this.coursesService.getList();

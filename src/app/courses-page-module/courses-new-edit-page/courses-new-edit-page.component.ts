@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CoursesService} from '../courses.service';
 import {CoursesListItem} from '../courses-list.interface';
 
@@ -13,10 +13,10 @@ export class CoursesNewEditPageComponent implements OnInit {
   duration: number;
   description = '';
   date: Date;
-  protected id: number;
+  protected id: number|string;
   protected selectedCourse: CoursesListItem;
 
-  constructor(private route: ActivatedRoute, private coursesService: CoursesService) { }
+  constructor(private route: ActivatedRoute, private coursesService: CoursesService, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -28,6 +28,7 @@ export class CoursesNewEditPageComponent implements OnInit {
         this.description = this.selectedCourse.description;
         this.date = this.selectedCourse.creationDate;
       } else {
+        this.id = 'new';
         this.title = '';
         this.duration = 0;
         this.description = '';
@@ -37,9 +38,15 @@ export class CoursesNewEditPageComponent implements OnInit {
   }
 
   save(): void {
-    console.log(this.duration, this.date, this.description, this.title);
+    if (this.id === 'new') {
+      this.coursesService.createCourse(this.title, this.date, this.description, this.duration, false);
+    } else {
+      this.coursesService.updateItem(+this.id, this.title, this.date, this.description, this.duration, false);
+    }
+
+    this.router.navigate(['/course-list']);
   }
   cancel(): void {
-    console.log('cancel');
+    this.router.navigate(['/course-list']);
   }
 }

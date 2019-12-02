@@ -10,17 +10,12 @@ import {CoursesListItem} from '../courses-list.interface';
 export class CoursesListItemComponent implements OnInit {
   @Input() public courseInfo: CoursesListItem;
   @Output() deleteCourseEvent = new EventEmitter<number>();
-
   constructor() { }
 
   ngOnInit() {
-    if (this.courseInfo.id % 2) {
-      this.courseInfo.title = 'OnInit value';
-    }
-  }
-
-  editCourse(id) {
-    return;
+    // if (this.courseInfo.id % 2) {
+    //   this.courseInfo.title = 'OnInit value';
+    // }
   }
 
   deleteCourse(id: number) {
