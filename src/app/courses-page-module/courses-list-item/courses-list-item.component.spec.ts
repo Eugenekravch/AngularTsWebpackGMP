@@ -12,7 +12,7 @@ class TestComponent {
   public courseItem: CoursesListItem = {
     id: 2,
     description: 'Test',
-    creationDate: '10-10-2019',
+    creationDate: new Date('10-10-2019'),
     duration: 5,
     title: 'Test title'
   };

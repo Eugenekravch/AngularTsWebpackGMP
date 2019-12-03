@@ -13,9 +13,6 @@ export class CoursesListItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // if (this.courseInfo.id % 2) {
-    //   this.courseInfo.title = 'OnInit value';
-    // }
   }
 
   deleteCourse(id: number) {

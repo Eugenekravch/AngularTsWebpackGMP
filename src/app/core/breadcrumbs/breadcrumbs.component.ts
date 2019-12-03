@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Route, Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -9,7 +9,7 @@ import {ActivatedRoute, NavigationEnd, Route, Router} from '@angular/router';
 export class BreadcrumbsComponent implements OnInit {
   breadcrumbsValue = 'course-page';
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.router.events.subscribe((value => {

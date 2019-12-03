@@ -2,7 +2,7 @@
 <app-breadcrumbs></app-breadcrumbs>
 <main class="main-content">
   <app-search></app-search>
-  <div class="list-of-courses">
+  <div class="list-of-courses" *ngIf="!routeUrl">
     <app-courses-list-item
       (deleteCourseEvent)="deleteCourse($event)"
       *ngFor="let course of courses"

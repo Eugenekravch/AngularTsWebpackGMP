@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from './courses.service';
 import {CoursesListItem} from './courses-list.interface';
+import {NavigationEnd, Router} from '@angular/router';
+import { split } from 'lodash';
 
 @Component({
   selector: 'app-courses-list',
@@ -10,11 +12,21 @@ import {CoursesListItem} from './courses-list.interface';
 export class CoursesListComponent implements OnInit {
 
   courses: CoursesListItem[];
+  routeUrl: string;
 
-  constructor(private coursesService: CoursesService) { }
+  constructor(private coursesService: CoursesService, private router: Router) { }
 
   ngOnInit() {
     this.getCourses();
+    this.router.events.subscribe((value => {
+      if (value instanceof NavigationEnd) {
+        this.setValueFromUrl(value.url);
+      }
+    }));
+  }
+
+  setValueFromUrl(url) {
+    this.routeUrl = split(url, '/')[2];
   }
 
   loadMore() {
@@ -27,9 +39,6 @@ export class CoursesListComponent implements OnInit {
       this.coursesService.removeItem(id);
     }
   }
-  // editCourse(id: number) {
-  //
-  // }
 
   getCourses(): void {
     this.courses = this.coursesService.getList();
