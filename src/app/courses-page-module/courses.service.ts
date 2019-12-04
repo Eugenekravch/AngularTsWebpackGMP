@@ -52,7 +52,7 @@ export class CoursesService {
   }
 
   createCourse(title, creationDate, description, duration, topRated): void {
-    this.id = this.id++;
+    this.id = ++this.id;
     this.courses.push({
       id: this.id,
       title,
