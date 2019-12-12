@@ -1,9 +1,16 @@
 .auth-form {
-  width: 400px;
-  background: beige;
+  background: lightskyblue;
   border-radius: 10px;
-  height: 300px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  > div {
+    margin-bottom: 10px;
+    label {
+      display: block;
+    }
+  }
 }
 .auth-page {
   height: calc(100vh - 125px);

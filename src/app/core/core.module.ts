@@ -6,13 +6,15 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { LogoComponent } from './header/logo/logo.component';
 import { LoginInfoComponent } from './header/login-info/login-info.component';
 import { EmptyRouteComponentComponent } from './empty-route-component/empty-route-component.component';
+import {RouterModule} from '@angular/router';
 
 
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, BreadcrumbsComponent, LogoComponent, LoginInfoComponent, EmptyRouteComponentComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [HeaderComponent, FooterComponent, BreadcrumbsComponent, EmptyRouteComponentComponent]
 })

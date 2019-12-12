@@ -23,6 +23,11 @@ export class CoursesNewEditPageComponent implements OnInit {
       if (params.id !== 'new') {
         this.id = +params.id;
         this.selectedCourse = this.coursesService.getItemById(this.id);
+
+        if (!this.selectedCourse) {
+          this.router.navigate(['/not-found']);
+        }
+
         this.title = this.selectedCourse.title;
         this.duration = this.selectedCourse.duration;
         this.description = this.selectedCourse.description;

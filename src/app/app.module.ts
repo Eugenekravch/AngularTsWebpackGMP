@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {CoreModule} from './core/core.module';
 import {CoursesPageModuleModule} from './courses-page-module/courses-page-module.module';
 import {AuthenticationModuleModule} from './authentication-module/authentication-module.module';
+import {MainPageModule} from './main-page/main-page.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {AuthenticationModuleModule} from './authentication-module/authentication
     AppRoutingModule,
     CoreModule,
     CoursesPageModuleModule,
-    AuthenticationModuleModule
+    AuthenticationModuleModule,
+    MainPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

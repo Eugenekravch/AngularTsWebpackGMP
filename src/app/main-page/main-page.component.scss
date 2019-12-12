@@ -1,0 +1,24 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.list-of-courses {
+  .add-more {
+    padding: 20px 0;
+    margin: 20px 0;
+    background: white;
+    text-align: center;
+    width: 100%;
+    .link-button {
+      color: black;
+    }
+  }
+}
+.main-page-wrapper {
+  background: #eeeeee;
+  .main-content {
+    width: 80%;
+    margin: auto;
+  }
+}

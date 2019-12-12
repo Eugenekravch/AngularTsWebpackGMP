@@ -8,7 +8,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
-  // @Output() loginEvent = new EventEmitter<object>();
   password: string;
   userName: string;
 
@@ -17,12 +16,11 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
   }
 
-  // login(): void {
-  //   this.loginEvent.emit({name: this.userName, password: this.password});
-  // }
   login(): void {
+    if (!this.userName || !this.password) {
+      return;
+    }
     this.authService.login(this.userName, this.password);
-    console.log(this.authService.isAuthenticated());
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/course-list']);
     }

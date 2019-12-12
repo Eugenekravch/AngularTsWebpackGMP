@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'course-list',
     loadChildren: () =>
-      import('./courses-page-module/courses-page-module.module').then(mod => mod.CoursesPageModuleModule),
+      import('./main-page/main-page.module').then(mod => mod.MainPageModule),
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
   },

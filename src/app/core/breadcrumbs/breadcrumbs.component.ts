@@ -7,7 +7,8 @@ import {NavigationEnd, Router} from '@angular/router';
   styleUrls: ['./breadcrumbs.component.scss']
 })
 export class BreadcrumbsComponent implements OnInit {
-  breadcrumbsValue = 'course-page';
+  breadcrumbsInitValue = 'course-list';
+  breadcrumbsValue: string[];
 
   constructor(private router: Router) {}
 
@@ -20,6 +21,6 @@ export class BreadcrumbsComponent implements OnInit {
   }
 
   createBreadCrumbs(url) {
-    this.breadcrumbsValue = url.replace('/', '    ');
+    this.breadcrumbsValue = url.split('/').splice(1, url.length);
   }
 }

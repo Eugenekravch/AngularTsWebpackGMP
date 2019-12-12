@@ -1,17 +1,10 @@
-<app-header></app-header>
-<app-breadcrumbs></app-breadcrumbs>
-<main class="main-content">
-  <app-search></app-search>
-  <div class="list-of-courses" *ngIf="!routeUrl">
-    <app-courses-list-item
-      (deleteCourseEvent)="deleteCourse($event)"
-      *ngFor="let course of courses"
-      [courseInfo]="course"></app-courses-list-item>
-    <div class="add-more">
-      <button class="link-button" (click)="loadMore()">Load more</button>
-    </div>
+<app-search></app-search>
+<div class="list-of-courses" *ngIf="!routeUrl">
+  <app-courses-list-item
+    (deleteCourseEvent)="deleteCourse($event)"
+    *ngFor="let course of courses"
+    [courseInfo]="course"></app-courses-list-item>
+  <div class="add-more">
+    <button class="link-button" (click)="loadMore()">Load more</button>
   </div>
-  <router-outlet></router-outlet>
-  <!--<app-courses-new-edit-page ></app-courses-new-edit-page>-->
-</main>
-<app-footer></app-footer>
+</div>
