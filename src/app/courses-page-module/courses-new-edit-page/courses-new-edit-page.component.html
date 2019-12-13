@@ -13,7 +13,9 @@
   </div>
   <div class="new-page-form-field">
     <label for="courseDuration">Duration</label>
-    <input type="number" id="courseDuration" [(ngModel)]="duration">
+    <div>
+      <input type="number" id="courseDuration" [(ngModel)]="duration"><span>{{duration | duration}}</span>
+    </div>
   </div>
   <div class="new-page-form-field buttons-container">
     <button class="action-button" (click)="save()">Save</button>
