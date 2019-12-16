@@ -1,15 +1,15 @@
 <div
   class="course-list-item"
-  [ngClass]="{'top-rated': courseInfo.topRated}"
-  [appCourseStatus]="courseInfo.creationDate">
+  [ngClass]="{'top-rated': courseInfo.isTopRated}"
+  [appCourseStatus]="courseInfo.date">
   <div class="course-list-item-header">
-    <h3><span *ngIf="courseInfo.topRated" style="margin-right: 5px">☆</span>{{courseInfo.title | uppercase}}</h3>
+    <h3><span *ngIf="courseInfo.isTopRated" style="margin-right: 5px">☆</span>{{courseInfo.name | uppercase}}</h3>
     <div class="course-duration">
       <div>
-        {{courseInfo.duration | duration}}
+        {{courseInfo.length | duration}}
       </div>
       <div>
-        {{courseInfo.creationDate | date: 'medium' | slice: 0:6}}
+        {{courseInfo.date | date: 'medium' | slice: 0:6}}
       </div>
     </div>
   </div>

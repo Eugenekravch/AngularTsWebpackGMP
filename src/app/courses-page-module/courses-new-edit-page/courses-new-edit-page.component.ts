@@ -12,7 +12,7 @@ export class CoursesNewEditPageComponent implements OnInit {
   title = '';
   duration: number;
   description = '';
-  date: Date;
+  date: string;
   protected id: number|string;
   protected selectedCourse: CoursesListItem;
 
@@ -22,16 +22,18 @@ export class CoursesNewEditPageComponent implements OnInit {
     this.route.params.subscribe(params => {
       if (params.id !== 'new') {
         this.id = +params.id;
-        this.selectedCourse = this.coursesService.getItemById(this.id);
+        this.coursesService.getItemById(this.id).subscribe((course: any) => {
+          this.selectedCourse = course;
+          if (!this.selectedCourse) {
+            this.router.navigate(['/not-found']);
+          }
 
-        if (!this.selectedCourse) {
-          this.router.navigate(['/not-found']);
-        }
-
-        this.title = this.selectedCourse.title;
-        this.duration = this.selectedCourse.duration;
-        this.description = this.selectedCourse.description;
-        this.date = this.selectedCourse.creationDate;
+          this.title = this.selectedCourse.name;
+          this.duration = this.selectedCourse.length;
+          this.description = this.selectedCourse.description;
+          this.date = this.selectedCourse.date;
+        });
+        // this.selectedCourse = this.coursesService.getItemById(this.id);
       } else {
         this.id = 'new';
         this.title = '';

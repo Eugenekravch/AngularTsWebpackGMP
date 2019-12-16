@@ -30,17 +30,23 @@ export class CoursesListComponent implements OnInit {
   }
 
   loadMore() {
-    console.log('load more');
+    this.coursesService.loadMore().subscribe((nextPortionOfCourses: CoursesListItem[]) => {
+      this.courses = this.courses.concat(nextPortionOfCourses);
+    });
   }
 
   deleteCourse(id: number) {
     const result = confirm('Do you really want to delete this course?');
     if (result) {
-      this.coursesService.removeItem(id);
+      this.coursesService.removeItem(id).subscribe(() => {
+        this.getCourses();
+      });
     }
   }
 
   getCourses(): void {
-    this.courses = this.coursesService.getList();
+    this.coursesService.getList().subscribe((courseLists: CoursesListItem[]) => {
+       this.courses = courseLists;
+    });
   }
 }

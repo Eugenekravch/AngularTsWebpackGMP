@@ -12,9 +12,9 @@ class TestComponent {
   public courseItem: CoursesListItem = {
     id: 2,
     description: 'Test',
-    creationDate: new Date('10-10-2019'),
-    duration: 5,
-    title: 'Test title'
+    date: '05-10-2019',
+    length: 5,
+    name: 'Test title'
   };
   public deletedId: number;
   public deleteCourse(id) { this.deletedId =  id; }

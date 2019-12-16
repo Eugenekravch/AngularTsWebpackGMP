@@ -21,7 +21,9 @@ export class LoginInfoComponent implements OnInit {
   ngOnInit() {
     this.isAuthenticatedUser = this.authService.isAuthenticated();
     if (this.isAuthenticatedUser) {
-      this.userInfo.userName = this.authService.getUserInfo();
+      this.authService.getUserInfo().subscribe((userInfo: any) => {
+        this.userInfo.userName = userInfo.login;
+      });
     }
   }
 
