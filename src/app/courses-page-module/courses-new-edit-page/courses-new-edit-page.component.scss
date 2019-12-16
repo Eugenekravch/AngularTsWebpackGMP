@@ -1,0 +1,18 @@
+.new-page-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  &-field {
+    width: 400px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    &.buttons-container {
+      height: auto;
+      flex-direction: row;
+      button {
+        margin-right: 10px;
+      }
+    }
+  }
+}

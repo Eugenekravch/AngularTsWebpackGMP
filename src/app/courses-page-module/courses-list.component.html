@@ -1,0 +1,10 @@
+<app-search></app-search>
+<div class="list-of-courses" *ngIf="!routeUrl">
+  <app-courses-list-item
+    (deleteCourseEvent)="deleteCourse($event)"
+    *ngFor="let course of courses"
+    [courseInfo]="course"></app-courses-list-item>
+  <div class="add-more">
+    <button class="link-button" (click)="loadMore()">Load more</button>
+  </div>
+</div>

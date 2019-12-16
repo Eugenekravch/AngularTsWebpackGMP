@@ -1,0 +1,9 @@
+<div class="bread-crumbs">
+  <span
+    *ngFor="let breadCrumb of breadcrumbsValue; let ind = index;"
+  >
+    <a *ngIf="ind === 0" [routerLink]="['/' + breadCrumb]">{{breadcrumbsInitValue}}</a>
+    <span *ngIf="ind !== 0">{{'/' + breadCrumb}}</span>
+  </span>
+  <a *ngIf="!breadcrumbsValue" [routerLink]="['/course-list']">{{breadcrumbsInitValue}}</a>
+</div>

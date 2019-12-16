@@ -1,0 +1,32 @@
+.action-button {
+  padding: 10px 15px;
+  background: lightskyblue;
+  color: white;
+  border: none;
+  &.green {
+    background: forestgreen;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.search-panel {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 80px;
+}
+.align-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.search-inputs {
+  input {
+    height: 25px;
+    margin-right: 20px;
+    border: 1px solid lightgray;
+    padding: 5px;
+  }
+}

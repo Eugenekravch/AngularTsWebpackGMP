@@ -1,0 +1,19 @@
+.auth-form {
+  background: lightskyblue;
+  border-radius: 10px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  > div {
+    margin-bottom: 10px;
+    label {
+      display: block;
+    }
+  }
+}
+.auth-page {
+  height: calc(100vh - 125px);
+  display: flex;
+  align-items: center;
+}

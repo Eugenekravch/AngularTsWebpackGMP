@@ -3,8 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {BaseModule} from './base/base.module';
+import {CoreModule} from './core/core.module';
 import {CoursesPageModuleModule} from './courses-page-module/courses-page-module.module';
+import {AuthenticationModuleModule} from './authentication-module/authentication-module.module';
+import {MainPageModule} from './main-page/main-page.module';
 
 @NgModule({
   declarations: [
@@ -13,8 +15,10 @@ import {CoursesPageModuleModule} from './courses-page-module/courses-page-module
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BaseModule,
-    CoursesPageModuleModule
+    CoreModule,
+    CoursesPageModuleModule,
+    AuthenticationModuleModule,
+    MainPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
