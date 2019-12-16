@@ -33,7 +33,6 @@ export class CoursesNewEditPageComponent implements OnInit {
           this.description = this.selectedCourse.description;
           this.date = this.selectedCourse.date;
         });
-        // this.selectedCourse = this.coursesService.getItemById(this.id);
       } else {
         this.id = 'new';
         this.title = '';
