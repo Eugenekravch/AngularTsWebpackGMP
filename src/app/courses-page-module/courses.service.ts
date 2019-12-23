@@ -66,4 +66,11 @@ export class CoursesService {
   removeItem(id) {
     return this.http.delete('http://localhost:3004/courses/' + id);
   }
+
+  searchCourses(searchText) {
+    return this.http.get('http://localhost:3004/courses/', {
+      params: {
+        textFragment: searchText
+      }});
+  }
 }

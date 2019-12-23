@@ -1,4 +1,4 @@
-<app-search></app-search>
+<app-search (searchEvent)="searchEvent($event)"></app-search>
 <div class="list-of-courses" *ngIf="!routeUrl">
   <app-courses-list-item
     (deleteCourseEvent)="deleteCourse($event)"

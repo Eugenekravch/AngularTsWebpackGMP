@@ -14,7 +14,7 @@ export class CoursesListComponent implements OnInit {
   courses: CoursesListItem[];
   routeUrl: string;
 
-  constructor(private coursesService: CoursesService, private router: Router) { }
+  constructor(private coursesService: CoursesService, private router: Router) {}
 
   ngOnInit() {
     this.getCourses();
@@ -47,6 +47,12 @@ export class CoursesListComponent implements OnInit {
   getCourses(): void {
     this.coursesService.getList().subscribe((courseLists: CoursesListItem[]) => {
        this.courses = courseLists;
+    });
+  }
+
+  searchEvent(searchText): void {
+    this.coursesService.searchCourses(searchText).subscribe((courses: any) => {
+      this.courses = courses;
     });
   }
 }

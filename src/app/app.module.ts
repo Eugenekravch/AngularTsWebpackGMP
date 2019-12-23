@@ -9,6 +9,7 @@ import {AuthenticationModuleModule} from './authentication-module/authentication
 import {MainPageModule} from './main-page/main-page.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './authentication-module/auth-interceptor';
+import {LoadingInterceptor} from './core/loading/loading-interceptor';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,11 @@ import {AuthInterceptor} from './authentication-module/auth-interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
       multi: true
     }
   ],
