@@ -1,20 +1,20 @@
 import {Injectable} from '@angular/core';
 import {CoursesListItem} from './courses-list.interface';
-import { find } from 'lodash';
 import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
+  protected currentLastIndex = 0;
+  private baseUrl = 'http://localhost:3004/courses';
   courses: CoursesListItem[];
 
-  constructor(private http: HttpClient) { }
-
-  protected currentLastIndex = 0;
+  constructor(private http: HttpClient, private router: Router) { }
 
   getList() {
-    return this.http.get('http://localhost:3004/courses', {
+    return this.http.get(this.baseUrl, {
       params: {
         start: '0',
         count: '3'
@@ -23,7 +23,7 @@ export class CoursesService {
   }
 
   createCourse(name, date, description, length, isTopRated) {
-    return this.http.post('http://localhost:3004/courses', {
+    return this.http.post(this.baseUrl, {
       id: 1,
       name,
       date,
@@ -41,7 +41,7 @@ export class CoursesService {
   loadMore() {
     this.currentLastIndex += 3;
 
-    return this.http.get('http://localhost:3004/courses', {
+    return this.http.get(this.baseUrl, {
       params: {
         start: '' + this.currentLastIndex,
         count: '3'
@@ -50,25 +50,33 @@ export class CoursesService {
   }
 
   getItemById(id) {
-    return this.http.get('http://localhost:3004/courses/' + id);
+    return this.http.get(this.baseUrl + '/' + id);
   }
 
   updateItem(id, name, date, description, length, isTopRated): void {
-    const selectedItem = find(this.courses, ['id', id]);
-
-    selectedItem.name = name;
-    selectedItem.date = date;
-    selectedItem.description = description;
-    selectedItem.length = length;
-    selectedItem.isTopRated = isTopRated;
+    this.http.patch(this.baseUrl + '/' + id, {
+      id,
+      name,
+      date,
+      length,
+      description,
+      authors: {
+      id: '1',
+        name: 'name'
+    },
+    isTopRated
+  }).subscribe((item) => {
+      this.router.navigate(['/course-list']);
+      console.log(item);
+    });
   }
 
   removeItem(id) {
-    return this.http.delete('http://localhost:3004/courses/' + id);
+    return this.http.delete(this.baseUrl + id);
   }
 
   searchCourses(searchText) {
-    return this.http.get('http://localhost:3004/courses/', {
+    return this.http.get(this.baseUrl, {
       params: {
         textFragment: searchText
       }});

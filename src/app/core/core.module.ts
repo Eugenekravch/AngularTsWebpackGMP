@@ -8,6 +8,7 @@ import { LoginInfoComponent } from './header/login-info/login-info.component';
 import { EmptyRouteComponentComponent } from './empty-route-component/empty-route-component.component';
 import {RouterModule} from '@angular/router';
 import { LoadingComponent } from './loading/loading.component';
+import {LoadingService} from './loading.service';
 
 
 
@@ -25,6 +26,7 @@ import { LoadingComponent } from './loading/loading.component';
     CommonModule,
     RouterModule
   ],
-  exports: [HeaderComponent, FooterComponent, BreadcrumbsComponent, EmptyRouteComponentComponent, LoadingComponent]
+  exports: [HeaderComponent, FooterComponent, BreadcrumbsComponent, EmptyRouteComponentComponent, LoadingComponent],
+  providers: [LoadingService]
 })
 export class CoreModule { }

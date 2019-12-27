@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private token = '';
+  private token = localStorage.key(0) || '';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -17,11 +16,13 @@ export class AuthService {
         password
       }).subscribe((response: any) => {
       this.token = response.token;
+      localStorage.setItem(this.token, null);
       this.router.navigate(['/course-list']);
     });
   }
 
   logout(): void {
+    localStorage.clear();
     this.token = '';
   }
 

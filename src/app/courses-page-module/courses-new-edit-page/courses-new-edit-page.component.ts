@@ -49,8 +49,6 @@ export class CoursesNewEditPageComponent implements OnInit {
     } else {
       this.coursesService.updateItem(+this.id, this.title, this.date, this.description, this.duration, false);
     }
-
-    this.router.navigate(['/course-list']);
   }
   cancel(): void {
     this.router.navigate(['/course-list']);
