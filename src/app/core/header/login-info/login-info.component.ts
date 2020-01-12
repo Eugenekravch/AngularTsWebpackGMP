@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UserInfo} from '../../user-info.interface';
 import {AuthService} from '../../../authentication-module/auth.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-login-info',
@@ -14,7 +15,7 @@ export class LoginInfoComponent implements OnInit {
     userName: ''
   };
 
-  isAuthenticatedUser: boolean;
+  isAuthenticatedUser: Observable<boolean>;
 
   constructor(private authService: AuthService) { }
 
