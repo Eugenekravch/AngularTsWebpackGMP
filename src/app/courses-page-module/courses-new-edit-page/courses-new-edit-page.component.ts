@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CoursesService} from '../courses.service';
 import {CoursesListItem} from '../courses-list.interface';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-courses-new-edit-page',
@@ -9,14 +10,18 @@ import {CoursesListItem} from '../courses-list.interface';
   styleUrls: ['./courses-new-edit-page.component.scss']
 })
 export class CoursesNewEditPageComponent implements OnInit {
-  title = '';
-  duration: number;
-  description = '';
-  date: string;
+  newEditForm: FormGroup;
   protected id: number|string;
   protected selectedCourse: CoursesListItem;
 
-  constructor(private route: ActivatedRoute, private coursesService: CoursesService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private coursesService: CoursesService, private router: Router) {
+    this.newEditForm = new FormGroup({
+      courseTitle: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      courseDescription: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+      courseDate: new FormControl('', [Validators.required]),
+      courseDuration: new FormControl(0, [Validators.required])
+    });
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -28,26 +33,34 @@ export class CoursesNewEditPageComponent implements OnInit {
             this.router.navigate(['/not-found']);
           }
 
-          this.title = this.selectedCourse.name;
-          this.duration = this.selectedCourse.length;
-          this.description = this.selectedCourse.description;
-          this.date = this.selectedCourse.date;
+          this.newEditForm.controls.courseTitle.setValue(this.selectedCourse.name);
+          this.newEditForm.controls.courseDuration.setValue(this.selectedCourse.length);
+          this.newEditForm.controls.courseDescription.setValue(this.selectedCourse.description);
+          this.newEditForm.controls.courseDate.setValue(this.selectedCourse.date);
         });
-      } else {
-        this.id = 'new';
-        this.title = '';
-        this.duration = 0;
-        this.description = '';
-        this.date = undefined;
       }
     });
   }
 
   save(): void {
+    const controls = this.newEditForm.value;
     if (this.id === 'new') {
-      this.coursesService.createCourse(this.title, this.date, this.description, this.duration, false);
+      this.coursesService.createCourse(
+        controls.courseTitle,
+        controls.courseDate,
+        controls.courseDescription,
+        controls.courseDuration,
+        false
+      );
     } else {
-      this.coursesService.updateItem(+this.id, this.title, this.date, this.description, this.duration, false);
+      this.coursesService.updateItem(
+        +this.id,
+        controls.courseTitle,
+        controls.courseDate,
+        controls.courseDescription,
+        controls.courseDuration,
+        false
+      );
     }
   }
   cancel(): void {

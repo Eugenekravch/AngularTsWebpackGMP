@@ -1,13 +1,15 @@
 <div class="auth-page">
-  <div class="auth-form">
+  <form #f="ngForm" (ngSubmit)="login()" class="auth-form">
+    <span style="color: red" *ngIf="name.invalid && (name.touched || name.dirty)">This field is required</span>
     <div>
       <label for="userName">Name</label>
-      <input type="text" id="userName" [(ngModel)]="userName">
+      <input type="text" id="userName" #name="ngModel" required name="userName" [(ngModel)]="userName">
     </div>
+    <span style="color: red" *ngIf="pass.invalid && (pass.touched || pass.dirty)">This field is required</span>
     <div>
       <label for="password">Password</label>
-      <input type="password" id="password" [(ngModel)]="password">
+      <input type="password" #pass="ngModel" id="password" name="password" required [(ngModel)]="password">
     </div>
-    <button type="submit" (click)="login()">Login</button>
-  </div>
+    <button type="submit" [disabled]="!f.valid">Login</button>
+  </form>
 </div>

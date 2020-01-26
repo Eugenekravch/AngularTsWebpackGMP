@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CoursesListComponent } from './courses-list.component';
 import { CoursesListItemComponent } from './courses-list-item/courses-list-item.component';
 import { SearchComponent } from './search/search.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CourseStatusDirective } from './courses-list-item/course-status.directive';
 import { DurationPipe } from './duration.pipe';
 import { CoursesNewEditPageComponent } from './courses-new-edit-page/courses-new-edit-page.component';
@@ -22,6 +22,7 @@ import { CoursesPageModuleRoutingModule } from './courses-page-module-routing.mo
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     CoreModule,
     CoursesPageModuleRoutingModule
   ],

@@ -24,7 +24,7 @@ export class CoursesService {
 
   createCourse(name, date, description, length, isTopRated) {
     return this.http.post(this.baseUrl, {
-      id: 1,
+      id: Math.random(),
       name,
       date,
       length,
@@ -32,8 +32,10 @@ export class CoursesService {
         id: 1,
         name: 'Name'
       },
+      description,
       isTopRated
     }).subscribe((item) => {
+      this.router.navigate(['/course-list']);
       console.log(item);
     });
   }

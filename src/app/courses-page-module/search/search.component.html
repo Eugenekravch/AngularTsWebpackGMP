@@ -1,7 +1,7 @@
 <div class="search-panel">
-  <div class="search-inputs">
-    <input [(ngModel)]="searchValue" id="searchInput">
-  </div>
+  <form class="search-inputs">
+    <input [(ngModel)]="searchValue" name="search" id="searchInput">
+  </form>
   <div class="align-bottom">
     <button class="action-button" [routerLink]="['./new']">Add course</button>
   </div>

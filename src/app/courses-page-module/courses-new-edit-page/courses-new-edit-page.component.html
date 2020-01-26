@@ -1,25 +1,25 @@
-<div class="new-page-form">
+<form (ngSubmit)="save()" [formGroup]="newEditForm" class="new-page-form">
   <div class="new-page-form-field">
     <label for="courseTitle">Title</label>
-    <input type="text" id="courseTitle" [(ngModel)]="title">
+    <input type="text" formControlName="courseTitle" id="courseTitle">
   </div>
   <div class="new-page-form-field">
     <label for="courseDescription">Description</label>
-    <textarea type="text" id="courseDescription" [(ngModel)]="description"></textarea>
+    <textarea type="text" id="courseDescription" formControlName="courseDescription"></textarea>
   </div>
   <div class="new-page-form-field">
     <label for="courseDate">Date</label>
-    <input type="text" id="courseDate" [(ngModel)]="date">
+    <input type="text" id="courseDate" formControlName="courseDate">
   </div>
   <div class="new-page-form-field">
     <label for="courseDuration">Duration</label>
     <div>
-      <input type="number" id="courseDuration" [(ngModel)]="duration"><span>{{duration | duration}}</span>
+      <input type="number" id="courseDuration" formControlName="courseDuration"><span>{{duration | duration}}</span>
     </div>
   </div>
   <div class="new-page-form-field buttons-container">
-    <button class="action-button" (click)="save()">Save</button>
+    <button class="action-button" [disabled]="!newEditForm.valid">Save</button>
     <button class="action-button" (click)="cancel()">Cancel</button>
   </div>
-</div>
+</form>
 
