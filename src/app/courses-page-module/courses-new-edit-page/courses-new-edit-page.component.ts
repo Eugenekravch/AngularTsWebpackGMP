@@ -18,8 +18,7 @@ export class CoursesNewEditPageComponent implements OnInit {
     this.newEditForm = new FormGroup({
       courseTitle: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       courseDescription: new FormControl('', [Validators.required, Validators.maxLength(500)]),
-      courseDate: new FormControl('', [Validators.required]),
-      courseDuration: new FormControl(0, [Validators.required])
+      courseDate: new FormControl('', [Validators.required])
     });
   }
 
@@ -38,6 +37,8 @@ export class CoursesNewEditPageComponent implements OnInit {
           this.newEditForm.controls.courseDescription.setValue(this.selectedCourse.description);
           this.newEditForm.controls.courseDate.setValue(this.selectedCourse.date);
         });
+      } else {
+        this.id = params.id;
       }
     });
   }

@@ -9,6 +9,8 @@ import { EmptyRouteComponentComponent } from './empty-route-component/empty-rout
 import {RouterModule} from '@angular/router';
 import { LoadingComponent } from './loading/loading.component';
 import {LoadingService} from './loading.service';
+import { DurationComponent } from './duration/duration.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -20,13 +22,16 @@ import {LoadingService} from './loading.service';
     LogoComponent,
     LoginInfoComponent,
     EmptyRouteComponentComponent,
-    LoadingComponent
+    LoadingComponent,
+    DurationComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  exports: [HeaderComponent, FooterComponent, BreadcrumbsComponent, EmptyRouteComponentComponent, LoadingComponent],
+  exports: [HeaderComponent, FooterComponent, BreadcrumbsComponent, EmptyRouteComponentComponent, LoadingComponent, DurationComponent],
   providers: [LoadingService]
 })
 export class CoreModule { }

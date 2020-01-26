@@ -13,9 +13,10 @@
   </div>
   <div class="new-page-form-field">
     <label for="courseDuration">Duration</label>
-    <div>
-      <input type="number" id="courseDuration" formControlName="courseDuration"><span>{{duration | duration}}</span>
-    </div>
+    <!--<div>-->
+      <!--<input type="number" id="courseDuration" formControlName="courseDuration"><span>{{duration | duration}}</span>-->
+    <!--</div>-->
+    <app-duration [formGroupChild]="newEditForm"></app-duration>
   </div>
   <div class="new-page-form-field buttons-container">
     <button class="action-button" [disabled]="!newEditForm.valid">Save</button>
